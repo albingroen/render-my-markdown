@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <MetaTags
-        image="https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1609525659/rmmd-seo_tm4oba.png"
+        image="https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1609528887/rmmd-seo_yyselm.png"
         description="Render any markdown through a simple url"
         title="rmmd.link | Render My Markdown"
         url={`https://rmmd.link${router.asPath}`}
