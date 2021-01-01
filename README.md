@@ -1,6 +1,6 @@
 # Render My Markdown
 
-> Render any markdown on a white page through a simple url
+> Render any markdown through a simple url
 
 ```javascript
 const markdown = '# Title'
