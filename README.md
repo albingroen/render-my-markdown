@@ -22,5 +22,5 @@ const url = `https://rmmd.link/?markdown=${encodeURIComponent(markdown)}`
 
 | Name     | Type    | Required | Default   | Description                                                          |
 |----------|---------|----------|-----------|----------------------------------------------------------------------|
-| markdown | String  | true     | undefined | A raw markdown string that will be rendered as HTML on the page.     |
+| markdown | String  | true     | undefined | A URL encoded markdown string that will be rendered as HTML on the page.     |
 | darkMode | Boolean | false    | false     | Setting this to true will render a dark page instead of a light one. |
