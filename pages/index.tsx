@@ -1,7 +1,7 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Editor from "rich-markdown-editor";
+import MetaTags from "../components/MetaTags/MetaTags";
 
 export default function Home() {
   const router = useRouter();
@@ -16,10 +16,12 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Render My Markdown</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MetaTags
+        image="https://res.cloudinary.com/albin-groen/image/upload/f_auto/v1609523144/CleanShot_2021-01-01_at_18.42.52_r6aaz8.png"
+        description="Render any markdown through a simple url"
+        title="rmmd.link | Render My Markdown"
+        url={`https://rmmd.link${router.asPath}`}
+      />
 
       <Editor
         defaultValue={markdown as string}
