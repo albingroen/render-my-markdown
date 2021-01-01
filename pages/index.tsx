@@ -32,7 +32,7 @@ export default function Home() {
       />
 
       <p className="banner">
-        Shared using{" "}
+        <span>Shared using</span>{" "}
         <a
           href="https://github.com/albingroen/render-my-markdown"
           rel="noopener noreferrer"

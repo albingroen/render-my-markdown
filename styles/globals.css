@@ -17,6 +17,10 @@ body {
   color: currentColor;
 }
 
+.banner span {
+  opacity: 0.5;
+}
+
 .banner a {
   color: skyblue;
 }
