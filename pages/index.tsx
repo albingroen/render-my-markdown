@@ -5,7 +5,7 @@ import MetaTags from "../components/MetaTags/MetaTags";
 
 export default function Home() {
   const router = useRouter();
-  const { markdown, darkMode } = router.query;
+  const { markdown, darkMode, hideBanner } = router.query;
 
   useEffect(() => {
     if (darkMode === "true") {
@@ -31,16 +31,18 @@ export default function Home() {
         readOnly
       />
 
-      <p className="banner">
-        <span>Shared using</span>{" "}
-        <a
-          href="https://github.com/albingroen/render-my-markdown"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          render-my-markdown
-        </a>
-      </p>
+      {hideBanner !== "true" && (
+        <p className="banner">
+          <span>Shared using</span>{" "}
+          <a
+            href="https://github.com/albingroen/render-my-markdown"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            render-my-markdown
+          </a>
+        </p>
+      )}
     </div>
   );
 }

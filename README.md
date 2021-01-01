@@ -15,7 +15,7 @@ const markdown = '# Title'
 
 const url = `https://rmmd.link/?markdown=${encodeURIComponent(markdown)}`
 
-<a href={markdown}>Share markdown</a>
+<a href={url}>Share markdown</a>
 ```
 
 ## Query parameters
@@ -24,3 +24,4 @@ const url = `https://rmmd.link/?markdown=${encodeURIComponent(markdown)}`
 |----------|---------|----------|-----------|----------------------------------------------------------------------|
 | markdown | String  | true     | undefined | A URL encoded markdown string that will be rendered as HTML on the page.     |
 | darkMode | Boolean | false    | false     | Setting this to true will render a dark page instead of a light one. |
+| hideBanner | Boolean | false    | false     | Setting this to true will hide the "Shared using render-my-markdown" banner. |
