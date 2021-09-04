@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Editor from "rich-markdown-editor";
 import MetaTags from "../components/MetaTags/MetaTags";
 
@@ -22,6 +22,8 @@ export default function Home() {
         title="rmmd.link | Render My Markdown"
         url={`https://rmmd.link${router.asPath}`}
       />
+
+      {!markdown && <Generator />}
 
       <Editor
         defaultValue={markdown as string}
@@ -46,3 +48,69 @@ export default function Home() {
     </div>
   );
 }
+
+const Generator = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [markdown, setMarkdown] = useState<string>();
+
+  const url =
+    markdown &&
+    `https://rmmd.link/?markdown=${encodeURIComponent(
+      markdown
+    )}&darkMode=${darkMode}`;
+
+  return (
+    <div
+      style={{
+        fontFamily: "sans-serif",
+      }}
+    >
+      <div>
+        <textarea
+          value={markdown}
+          onChange={(e) => setMarkdown(e.currentTarget.value)}
+          rows={10}
+          cols={40}
+          placeholder="Enter markdown to generate a link"
+          style={{
+            border: "1px solid #ddd",
+            borderRadius: "5px",
+            fontSize: "1rem",
+            padding: "1.5rem",
+          }}
+        />
+      </div>
+
+      {url && (
+        <>
+          <div
+            style={{ marginTop: "1rem", display: "flex", alignItems: "center" }}
+          >
+            <input
+              onChange={(e) => setDarkMode(e.target.checked)}
+              style={{ marginRight: "0.5rem" }}
+              checked={darkMode}
+              type="checkbox"
+              id="darkMode"
+            />
+            <label htmlFor="darkMode">Use dark mode</label>
+          </div>
+
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            style={{
+              fontFamily: "sans-serif",
+              marginTop: "1rem",
+              display: "block",
+              lineHeight: 1.5,
+            }}
+            href={url}
+          >
+            &rarr; {url}
+          </a>
+        </>
+      )}
+    </div>
+  );
+};
